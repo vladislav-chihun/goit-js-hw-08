@@ -70,7 +70,7 @@ function modalOpen(event) {
   event.preventDefault()
   if (event.currentTarget === event.target) return;
   const imageId = Number(event.target.dataset.id);
-  const imageFind = images.find(({ id }) => id === imageId);
+  const imageFind = images.find;
   console.log(imageFind)
 }
 
