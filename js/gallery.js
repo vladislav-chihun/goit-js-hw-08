@@ -71,8 +71,9 @@ function modalOpen(event, images) {
   if (event.currentTarget === event.target) return;
 const galleryLink = event.target.closest('.gallery-link');
   if (!galleryLink) return;
-  const originalUrl = galleryLink.getAttribute(`original`);
-  console.log(originalUrl)
+   const getId = parseInt(galleryLink.dataset.id);
+   const findImage = images.find((image,index) => index === getId);
+  console.log(findImage.original)
   
 }
 
