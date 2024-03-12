@@ -65,7 +65,8 @@ const images = [
 ];
 const imageContainer = document.querySelector(".gallery");
 imageContainer.innerHTML = createElement(images);
-imageContainer.addEventListener("click", (event) => modalOpen(event,images))
+imageContainer.addEventListener("click", (event) => modalOpen(event, images))
+
 function modalOpen(event, images) {
   event.preventDefault()
   if (event.currentTarget === event.target) return;
@@ -73,20 +74,23 @@ const galleryLink = event.target.closest('.gallery-link');
   if (!galleryLink) return;
    const getId = parseInt(galleryLink.dataset.id);
    const findImage = images.find((image,index) => index === getId);
-  console.log(findImage.original)
 
-  const instance = basicLightBox.create(`
+  const instance = basicLightbox.create(`
   <div class="modal">
     <img
     class="gallery-image"
     src="${findImage.original}"
-    data-source="${findImage.original}"
-    data-id="${getId}"
     alt="${findImage.description}"
+    style="width: 1112px;min-height: 640px;"
     />
 </div>
   `);
+  instance.show()
+  const imageModal = document.querySelector(`.modal`);
+  imageModal.addEventListener('click', () => instance.close());
+
 }
+
 
 
 function createElement(images) {
