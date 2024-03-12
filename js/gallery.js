@@ -65,13 +65,15 @@ const images = [
 ];
 const imageContainer = document.querySelector(".gallery");
 imageContainer.innerHTML = createElement(images);
-imageContainer.addEventListener("click", modalOpen)
-function modalOpen(event) {
+imageContainer.addEventListener("click", (event) => modalOpen(event,images))
+function modalOpen(event, images) {
   event.preventDefault()
   if (event.currentTarget === event.target) return;
-  const imageId = Number(event.target.dataset.id);
-  const imageFind = images.find;
-  console.log(imageFind)
+const galleryLink = event.target.closest('.gallery-link');
+  if (!galleryLink) return;
+  const originalUrl = galleryLink.getAttribute(`original`);
+  console.log(originalUrl)
+  
 }
 
 
