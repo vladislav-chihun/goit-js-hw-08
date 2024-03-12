@@ -100,7 +100,7 @@ function createElement(images) {
     <img
       class="gallery-image"
       src="${preview}"
-      data-source="${original}"
+      data-source="${preview}"
       data-id="${index}"
       alt="${description}"
     />
