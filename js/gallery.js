@@ -74,7 +74,18 @@ const galleryLink = event.target.closest('.gallery-link');
    const getId = parseInt(galleryLink.dataset.id);
    const findImage = images.find((image,index) => index === getId);
   console.log(findImage.original)
-  
+
+  const instance = basicLightBox.create(`
+  <div class="modal">
+    <img
+    class="gallery-image"
+    src="${findImage.original}"
+    data-source="${findImage.original}"
+    data-id="${getId}"
+    alt="${findImage.description}"
+    />
+</div>
+  `);
 }
 
 
